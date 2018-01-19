@@ -2,10 +2,10 @@ var fieldListRef = firebase.database().ref("field_list");
 var setNewField = fieldListRef.push();
 
 setNewField.set({
-	"field": "utm_medium",
-	"name": "Social Media",
-	"value": "social-media",
-	"description": "Social Media Description"
+	field: "utm_medium",
+	name: "Social Media",
+	value: "social-media",
+	description: "Social Media Description"
 }
 
 
