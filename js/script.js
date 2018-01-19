@@ -1,9 +1,7 @@
 var myFile = new XMLHttpRequest();
 myFile.open('GET', '/res/selectFields.csv');
-myFile.onreadystatechange = function() {
-  if (client.readyState == 4) {
+myFile.onloadend = function() {
 	alert(myFile.responseText);
-  }
 }
 myFile.send();
 
