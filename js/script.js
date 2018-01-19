@@ -5,7 +5,7 @@ xhttp.onreadystatechange = function() {
        document.getElementById("mediumDetail").innerHTML = xhttp.responseText;
     }
 };
-xhttp.open("GET", "/res/selectFields.csv", true);
+xhttp.open("GET", "res/selectFields.csv", true);
 xhttp.send();
 
 var selectOptions = [
