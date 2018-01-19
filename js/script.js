@@ -1,7 +1,7 @@
 var fieldListRef = firebase.database().ref("field_list");
 var setNewField = fieldListRef.push();
 
-fieldListRef.once("value").then(function(snapshot) {
+fieldListRef.on("value", function(snapshot) {
 	snapshot.forEach(function(childSnapshot) {
 		var selectElement = document.getElementById("trackingCode").elements.namedItem(childSnapshot.child("field").val());
 		var createOption = document.createElement("option");
