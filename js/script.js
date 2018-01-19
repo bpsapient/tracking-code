@@ -1,5 +1,5 @@
 var myFile = new XMLHttpRequest();
-myFile.open('GET', '/res/fields.xml');
+myFile.open('GET', '/res/selectFields.csv');
 myFile.onreadystatechange = function() {
   alert(myFile.responseText);
 }
