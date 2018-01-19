@@ -6,7 +6,7 @@ setNewField.set({
 	name: "Social Media",
 	value: "social-media",
 	description: "Social Media Description"
-}
+});
 
 
 
