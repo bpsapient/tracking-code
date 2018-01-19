@@ -8,7 +8,7 @@ xhttp.onreadystatechange = function() {
 xhttp.open("GET", "res/selectFields.csv", true);
 xhttp.send();
 
-var newText = rawText.split("\n");
+var newText = rawText.replace("\n","<br>");
 document.getElementById("mediumDetail").innerHTML = newText;
 
 var selectOptions = [
