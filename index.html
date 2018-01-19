@@ -61,13 +61,15 @@
 	<div>
 		<p id="outputURL"></p>
 	</div>
-	<div><button id="createNewField" onclick="createNewField()">Create A New Field</button>
-	<div>
-		<p>Medium Details: <span id="mediumDetail"></span></p>
-		<p id="sourceDetail">Source Details</p>
-		<p id="campaignDetail">Campaign Details</p>
-		<p id="contentDetail">Content Details</p>
+	<button onclick="createNewField()">Create A New Field</button>
+	<div id="newFieldFormDiv">
+		<form id="newFieldForm" autocomplete="off" onsubmit="createMyNewField(); return false">
+			Field Type: <input type="text" name="fieldType" data-needed="required">
+			Field Name: <input type="text" name="fieldName" data-needed="required">
+			Field Value: <input type="text" name="fieldValue" data-needed="required">
+			Field Description: <input type="text" name="fieldDescription" data-needed="required">
 	</div>
+
 </body>
 
 </html>
