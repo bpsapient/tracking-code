@@ -1,9 +1,12 @@
-var myFile = new XMLHttpRequest();
-myFile.open('GET', '/res/selectFields.csv');
-myFile.onloadend = function() {
-	alert(myFile.responseText);
-}
-myFile.send();
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       alert(xhttp.responseText);
+    }
+};
+xhttp.open("GET", "/res/selectFields.csv", true);
+xhttp.send();
 
 var selectOptions = [
 	{field:"utm_medium", name:"Social Media", value:"social+media", description:"description1"},
