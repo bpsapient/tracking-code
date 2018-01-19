@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Campaign Tracking Link Creator</title>
+	<script src="js/script.js" async></script>
+
+</head>
+
+<body>
+	<h1>Campaign Tracking Link Creator</h1>
+	<p>This is the my Campaign Tracking Link Creator</p>
+
+	<form id="trackingCode" autocomplete="off" onsubmit="validateForm(this); return false" onreset="clearErrors();">
+		<label>URL: 
+			<input type="text" name="url" placeholder="ex: https://www.example.com" data-needed="required">
+		</label><span name="error"></span><br>
+		<label>Medium: 
+			<select name="utm_medium" onchange="displayDescription(this)" data-needed="required">
+				<option selected disabled hidden value="">Select...</option>
+			</select>
+		</label><span name="error"></span><br>
+		<label>Source: 
+			<select name="utm_source" data-needed="required">
+				<option selected disabled hidden value="">Select...</option>
+			</select>
+		</label><span name="error"></span><br>
+		<label>Campaign: 
+			<select name="utm_campaign" data-needed="required">
+				<option selected disabled hidden value="">Select...</option>
+			</select>
+		</label><span name="error"></span><br>
+		<label>Content: 
+			<input type="text" name="utm_content" placeholder="ex: link 2" data-needed="optional">
+		</label><span name="error"></span><br>
+	</form>
+		
+	<form id="ppcEnable" onsubmit="return false">	
+	Is this a PAID SEARCH campaign?
+		<input type="radio" name="ppc" value="yes" onclick="ppcEnable(this)"> Yes 
+		<input type="radio" name="ppc" value="no" onclick="ppcEnable(this)" checked> No (Default)
+	</form>
+	<label>Term: 
+		<input type="text" name="utm_term" data-needed="optional" form="trackingCode" disabled>
+	</label><span name="error"></span><br>
+		
+	<input type="submit" value="Create Link" form="trackingCode"> <input type="reset" form="trackingCode">
+	<div>
+		<p id="outputURL"></p>
+	</div>
+	<div>
+		<p>Medium Details: <span id="mediumDetail"></span></p>
+		<p id="sourceDetail">Source Details</p>
+		<p id="campaignDetail">Campaign Details</p>
+		<p id="contentDetail">Content Details</p>
+	</div>
+</body>
+
+</html>
