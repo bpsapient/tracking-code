@@ -1,3 +1,10 @@
+var myFile = new XMLHttpRequest();
+myFile.open('GET', '/res/fields.xml');
+myFile.onreadystatechange = function() {
+  alert(myFile.responseText);
+}
+myFile.send();
+
 var selectOptions = [
 	{field:"utm_medium", name:"Social Media", value:"social+media", description:"description1"},
 	{field:"utm_medium", name:"E-Mail", value:"e-mail", description:"description2"},
