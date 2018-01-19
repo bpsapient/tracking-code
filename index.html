@@ -64,7 +64,12 @@
 	<button onclick="createNewField()">Create A New Field</button>
 	<div id="newFieldFormDiv">
 		<form id="newFieldForm" autocomplete="off" onsubmit="createMyNewField(); return false">
-			Field Type: <input type="text" name="fieldType" data-needed="required"><br>
+			Field Type: <select name="fieldType" data-needed="required">
+				<option selected disabled hidden value="">Select...</option>
+				<option value="utm_source">Source</option>
+				<option value="utm_medium">Medium</option>
+				<option value="utm_campaign">Campaign</option>
+			</select><br>
 			Field Name: <input type="text" name="fieldName" data-needed="required"><br>
 			Field Value: <input type="text" name="fieldValue" data-needed="required"><br>
 			Field Description: <input type="text" name="fieldDescription" data-needed="required"><br>
