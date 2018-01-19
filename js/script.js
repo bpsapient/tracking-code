@@ -3,46 +3,13 @@ var setNewField = fieldListRef.push();
 
 fieldListRef.once("value").then(function(snapshot) {
 	snapshot.forEach(function(childSnapshot) {
-		var selectName = document.getElementById("trackingCode").elements.namedItem(childSnapshot.child("field").val());
+		var selectElement = document.getElementById("trackingCode").elements.namedItem(childSnapshot.child("field").val());
 		var createOption = document.createElement("option");
 		createOption.value = childSnapshot.child("value").val();
 		createOption.textContent = childSnapshot.child("name").val();
-		selectName.appendChild(createOption);
+		selectElement.appendChild(createOption);
 	});
 });
-
-
-
-//var xhttp = new XMLHttpRequest();
-//xhttp.onreadystatechange = function() {
-//    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-//       var rawText = xhttp.responseXML;
-//    }
-//};
-//xhttp.open("GET", "res/selectFields.csv", true);
-//xhttp.send();
-//
-//var newText = rawText.replace("\n","<br>");
-//document.getElementById("mediumDetail").innerHTML = newText;
-
-//var selectOptions = [
-//	{field:"utm_medium", name:"Social Media", value:"social+media", description:"description1"},
-//	{field:"utm_medium", name:"E-Mail", value:"e-mail", description:"description2"},
-//	{field:"utm_source", name:"Facebook", value:"facebook", description:"description3"},
-//	{field:"utm_source", name:"Twitter", value:"twitter", description:"description4"},
-//	{field:"utm_campaign", name:"Campaign A", value:"campaign+a", description:"description5"},
-//	{field:"utm_campaign", name:"Campaign B", value:"campaign+b", description:"description6"}
-//];
-//
-//
-//for (i = 0; i < selectOptions.length; i++) {
-//	var a = document.getElementById("trackingCode").elements.namedItem(selectOptions[i].field);
-//	var b = document.createElement("option");
-//	b.value = selectOptions[i].value;
-//	b.textContent = selectOptions[i].name;
-//	a.appendChild(b);
-//}
 
 function validateForm(x) {
 	clearErrors();
@@ -129,6 +96,20 @@ function ppcEnable (x) {
 		y.dataset.needed = "optional";
 		y.value = "";
 	}			
+}
+
+function createNewField() {
+	
+}
+
+function createMyNewField() {
+	var a = document.getElementById("newFieldForm").elements;
+	setNewField.set({
+		field: a[0].value,
+		name: a[1].value,
+		value: a[2].value,
+		description: a[3].value
+	});
 }
 
 function clearErrors() {
