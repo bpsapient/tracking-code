@@ -1,0 +1,9 @@
+Field,Name,Value,Description
+utm_medium,Social Media,social+media,This%20includes%20social%20media%20platforms%2C%20such%20as%20Facebook%20and%20Twitter.
+utm_medium,E-Mail,e-mail,Newsletters%20distributed%20via%20GovDelivery%2C%20etc.
+utm_medium,Referral,referral,Promotional%20links%20from%20affiliate%20websites.
+utm_medium,Paid Search,ppc,Paid%20text%20ads%20on%20search%20engine%20results%20pages%20%28SERPs%29.
+utm_source,Facebook,facebook,www.facebook.com
+utm_source,Twitter,twitter,www.twitter.com
+utm_campaign,Campaign A,campaign+a,My%20Campaign%20A
+utm_campaign,Campaign B,campaign+b,My%20Campaign%20B
