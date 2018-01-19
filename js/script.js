@@ -2,11 +2,14 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
-       document.getElementById("mediumDetail").innerHTML = xhttp.responseText;
+       var rawText = xhttp.responseText;
     }
 };
 xhttp.open("GET", "res/selectFields.csv", true);
 xhttp.send();
+
+var newText = rawText.split("\n");
+document.getElementById("mediumDetail").innerHTML = newText;
 
 var selectOptions = [
 	{field:"utm_medium", name:"Social Media", value:"social+media", description:"description1"},
