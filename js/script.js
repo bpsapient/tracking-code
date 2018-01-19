@@ -4,12 +4,20 @@ var setNewField = fieldListRef.push();
 fieldListRef.on("value", function(snapshot) {
 	snapshot.forEach(function(childSnapshot) {
 		var selectElement = document.getElementById("trackingCode").elements.namedItem(childSnapshot.child("field").val());
-		var createOption = document.createElement("option");
-		createOption.value = childSnapshot.child("value").val();
-		createOption.textContent = childSnapshot.child("name").val();
-		selectElement.appendChild(createOption);
+		var scanOptions = selectElement.map(checkExists); 
+		if (scanOptions.indexOf(true) != -1) {
+			var createOption = document.createElement("option");
+			createOption.value = childSnapshot.child("value").val();
+			createOption.textContent = childSnapshot.child("name").val();
+			selectElement.appendChild(createOption);
+		}
 	});
 });
+
+function checkExists(item) {
+	var x = (item.value == childSnapshot.child("value").val());
+	return x;
+}
 
 function validateForm(x) {
 	clearErrors();
