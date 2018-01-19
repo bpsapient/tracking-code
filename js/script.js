@@ -1,11 +1,14 @@
 var fieldListRef = firebase.database().ref("field_list");
 var setNewField = fieldListRef.push();
 
-setNewField.set({
-	field: "utm_medium",
-	name: "E-mail",
-	value: "e-mail",
-	description: "E-mail Description"
+fieldListRef.once("value").then(function(snapshot) {
+	snapshot.forEach(function(childSnapshot) {
+		var selectName = document.getElementById("trackingCode").elements.namedItem(childSnapshot.child("field").val());
+		var createOption = document.createElement("option");
+		createOption.value = childSnapshot.child("value").val();
+		createOption.textContent = childSnapshot.child("name").val();
+		selectName.appendChild(createOption);
+	});
 });
 
 
@@ -23,23 +26,23 @@ setNewField.set({
 //var newText = rawText.replace("\n","<br>");
 //document.getElementById("mediumDetail").innerHTML = newText;
 
-var selectOptions = [
-	{field:"utm_medium", name:"Social Media", value:"social+media", description:"description1"},
-	{field:"utm_medium", name:"E-Mail", value:"e-mail", description:"description2"},
-	{field:"utm_source", name:"Facebook", value:"facebook", description:"description3"},
-	{field:"utm_source", name:"Twitter", value:"twitter", description:"description4"},
-	{field:"utm_campaign", name:"Campaign A", value:"campaign+a", description:"description5"},
-	{field:"utm_campaign", name:"Campaign B", value:"campaign+b", description:"description6"}
-];
-
-
-for (i = 0; i < selectOptions.length; i++) {
-	var a = document.getElementById("trackingCode").elements.namedItem(selectOptions[i].field);
-	var b = document.createElement("option");
-	b.value = selectOptions[i].value;
-	b.textContent = selectOptions[i].name;
-	a.appendChild(b);
-}
+//var selectOptions = [
+//	{field:"utm_medium", name:"Social Media", value:"social+media", description:"description1"},
+//	{field:"utm_medium", name:"E-Mail", value:"e-mail", description:"description2"},
+//	{field:"utm_source", name:"Facebook", value:"facebook", description:"description3"},
+//	{field:"utm_source", name:"Twitter", value:"twitter", description:"description4"},
+//	{field:"utm_campaign", name:"Campaign A", value:"campaign+a", description:"description5"},
+//	{field:"utm_campaign", name:"Campaign B", value:"campaign+b", description:"description6"}
+//];
+//
+//
+//for (i = 0; i < selectOptions.length; i++) {
+//	var a = document.getElementById("trackingCode").elements.namedItem(selectOptions[i].field);
+//	var b = document.createElement("option");
+//	b.value = selectOptions[i].value;
+//	b.textContent = selectOptions[i].name;
+//	a.appendChild(b);
+//}
 
 function validateForm(x) {
 	clearErrors();
