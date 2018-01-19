@@ -3,9 +3,9 @@ var setNewField = fieldListRef.push();
 
 setNewField.set({
 	field: "utm_medium",
-	name: "Social Media",
-	value: "social-media",
-	description: "Social Media Description"
+	name: "E-mail",
+	value: "e-mail",
+	description: "E-mail Description"
 });
 
 
