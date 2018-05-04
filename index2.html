@@ -1,1 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	  <script>
+  		// Initialize Firebase
+		  var config = {
+			  apiKey: "AIzaSyCjNFsRy7mXQjcSwYarBU3eUh5n7XE-2zg",
+			  authDomain: "campaign-tracking-code-creator.firebaseapp.com",
+        databaseURL: "https://campaign-tracking-code-creator.firebaseio.com",
+        projectId: "campaign-tracking-code-creator",
+        storageBucket: "",
+        messagingSenderId: "528637479358"
+      };
+      firebase.initializeApp(config);
+    </script>
+    
+    <script src="js/script.js" async></script>
+    
+    <title>NIDDK Campaign Tracking Link Creator</title>
+  </head>
+  <body>
+    <h1>Campaign Tracking Link Creator</h1>
+    <p>This is the my Campaign Tracking Link Creator</p>
+    <form id="trackingCode" autocomplete="off" onsubmit="validateForm(this); return false" onreset="clearErrors();">
+      <label>URL: 
+        <input type="text" name="url" placeholder="ex: https://www.example.com" data-needed="required">
+      </label><span name="error"></span><br>
+      <label>Medium: 
+        <select name="utm_medium" onchange="displayDescription(this)" data-needed="required">
+          <option selected disabled hidden value="">Select...</option>
+			  </select>
+		  </label><span name="error"></span><br>
+		  <label>Source: 
+			  <select name="utm_source" data-needed="required">
+				  <option selected disabled hidden value="">Select...</option>
+			  </select>
+		  </label><span name="error"></span><br>
+		  <label>Campaign: 
+		  	<select name="utm_campaign" data-needed="required">
+			  	<option selected disabled hidden value="">Select...</option>
+		  	</select>
+		  </label><span name="error"></span><br>
+	  	<label>Content: 
+		  	<input type="text" name="utm_content" placeholder="ex: link 2" data-needed="optional">
+	  	</label><span name="error"></span><br>
+	  </form>
+		
+  	<form id="ppcEnable" onsubmit="return false">	
+  	Is this a PAID SEARCH campaign?
+  		<input type="radio" name="ppc" value="yes" onclick="ppcEnable(this)"> Yes 
+	  	<input type="radio" name="ppc" value="no" onclick="ppcEnable(this)" checked> No (Default)
+  	</form>
+  	<label>Term: 
+  		<input type="text" name="utm_term" data-needed="optional" form="trackingCode" disabled>
+  	</label><span name="error"></span><br>
+		
+  	<input type="submit" value="Create Link" form="trackingCode"> <input type="reset" form="trackingCode">
+  	<div>
+  		<p id="outputURL"></p>
+  	</div>
+  	<button onclick="createNewField()">Create A New Field</button>
+  	<div id="newFieldFormDiv">
+	  	<form id="newFieldForm" autocomplete="off" onsubmit="createMyNewField(); return false">
+  			Field Type: <select name="fieldType" data-needed="required">
+  				<option selected disabled hidden value="">Select...</option>
+	  			<option value="utm_source">Source</option>
+	  			<option value="utm_medium">Medium</option>
+	  			<option value="utm_campaign">Campaign</option>
+	  		</select><br>
+	  		Field Name: <input type="text" name="fieldName" data-needed="required"><br>
+	  		Field Value: <input type="text" name="fieldValue" data-needed="required"><br>
+	  		Field Description: <input type="text" name="fieldDescription" data-needed="required"><br>
+	  		<input type="submit" value="Create Field">
+	  	</form>
+  	</div>
+
+    
+    
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>
